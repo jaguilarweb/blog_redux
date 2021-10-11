@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
+import * as usuariosActions from '../../actions/usuariosActions';
 
 class Usuarios extends Component {
 /*   constructor(){
@@ -11,12 +12,13 @@ class Usuarios extends Component {
     }
   } */
 
-/*   async componentDidMount(){
-    const respuesta = await axios.get('https://jsonplaceholder.typicode.com/users')
+  componentDidMount(){
+/*     const respuesta = await axios.get('https://jsonplaceholder.typicode.com/users')
     this.setState({
       usuarios: respuesta.data
-    })
-  } */
+    }) */
+    this.props.traerTodos();
+  }
 
   ponerFilas = () => (
     this.props.usuarios.map((usuario) => (
@@ -29,6 +31,7 @@ class Usuarios extends Component {
   );
 
   render(){
+    console.log(this.props)
     return(
       <div >
         <table className='tabla'>
@@ -60,4 +63,4 @@ const mapStateToProps = (reducers) => {
 
 //El primer parametro son los reducer que necesito
 //El segundo son las acciones
-export default connect(mapStateToProps,{/* actions */})(Usuarios);
+export default connect(mapStateToProps, usuariosActions)(Usuarios);
