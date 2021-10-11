@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 
 const Tabla = (props) => {
   const ponerFilas = () => props.usuarios.map((usuario) => (
@@ -34,4 +34,8 @@ const Tabla = (props) => {
   )
 };
 
-export default Tabla;
+const mapStateToProps = (reducers) => {
+  return reducers.usuariosReducer;
+}
+
+export default connect(mapStateToProps)(Tabla);

@@ -19,7 +19,7 @@ class Usuarios extends Component {
     if (this.props.error){
       return <Fatal mensaje={this.props.error} />;
     }
-    return <Tabla usuarios={this.props.usuarios}/>
+    return <Tabla />
   }
 
 
