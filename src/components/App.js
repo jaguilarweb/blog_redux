@@ -3,31 +3,35 @@ import React, { Component } from 'react'
 //const app = stateless o funcional
 //const App = () => {
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      usuarios: [
+        {
+          nombre: 'Marcela',
+          correo: 'contact@test.com',
+          enlace: 'sitio.com'
+        },
+        {
+          nombre: 'Lorena',
+          correo: 'contact@test2.com',
+          enlace: 'sitio2.com'
+        }
+      ]
+    }
+  }
 
-  ponerFilas = () => [
-    <tr>
-      <td>
-        Marcela
-      </td>
-      <td>
-        contact@test.com
-      </td>
-      <td>
-        sitio.com
-      </td>
-    </tr>,
-    <tr>
-      <td>
-        Karen
-      </td>
-      <td>
-        contact@test2.com
-      </td>
-      <td>
-        sitio2.com
-      </td>
-    </tr>
-  ];
+  
+
+  ponerFilas = () => (
+    this.state.usuarios.map((usuario) => (
+      <tr>
+        <td>{usuario.nombre}</td>
+        <td>{usuario.correo}</td>
+        <td>{usuario.enlace}</td>
+      </tr>
+    ))
+  );
 
   render(){
     return(
